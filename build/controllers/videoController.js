@@ -50,21 +50,20 @@ var watch = /*#__PURE__*/function () {
           return _Video["default"].findById(id).populate("owner").populate("comments");
         case 3:
           video = _context2.sent;
-          console.log(video);
           if (video) {
-            _context2.next = 7;
+            _context2.next = 6;
             break;
           }
           return _context2.abrupt("return", res.render("404", {
             pageTitle: "Video not found.",
             video: video
           }));
-        case 7:
+        case 6:
           return _context2.abrupt("return", res.render("watch", {
             pageTitle: video.title,
             video: video
           }));
-        case 8:
+        case 7:
         case "end":
           return _context2.stop();
       }
@@ -179,12 +178,11 @@ var postUpload = /*#__PURE__*/function () {
     return _regeneratorRuntime().wrap(function _callee5$(_context5) {
       while (1) switch (_context5.prev = _context5.next) {
         case 0:
-          console.log(req.session.user);
           _id = req.session.user._id;
           fileUrl = req.file.path;
           _req$body2 = req.body, title = _req$body2.title, description = _req$body2.description, hashtags = _req$body2.hashtags;
-          _context5.prev = 4;
-          _context5.next = 7;
+          _context5.prev = 3;
+          _context5.next = 6;
           return _Video["default"].create({
             title: title,
             description: description,
@@ -192,27 +190,27 @@ var postUpload = /*#__PURE__*/function () {
             owner: _id,
             hashtags: _Video["default"].formatHashtags(hashtags)
           });
-        case 7:
+        case 6:
           newVideo = _context5.sent;
-          _context5.next = 10;
+          _context5.next = 9;
           return _User["default"].findById(_id);
-        case 10:
+        case 9:
           user = _context5.sent;
           user.videos.push(newVideo._id);
           user.save();
           return _context5.abrupt("return", res.redirect("/"));
-        case 16:
-          _context5.prev = 16;
-          _context5.t0 = _context5["catch"](4);
+        case 15:
+          _context5.prev = 15;
+          _context5.t0 = _context5["catch"](3);
           return _context5.abrupt("return", res.status(400).render("upload", {
             pageTitle: "Upload Video",
             errorMessage: _context5.t0._message
           }));
-        case 19:
+        case 18:
         case "end":
           return _context5.stop();
       }
-    }, _callee5, null, [[4, 16]]);
+    }, _callee5, null, [[3, 15]]);
   }));
   return function postUpload(_x9, _x10) {
     return _ref5.apply(this, arguments);

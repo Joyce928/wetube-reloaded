@@ -15,7 +15,6 @@ var _userRouter = _interopRequireDefault(require("./routers/userRouter"));
 var _apiRouter = _interopRequireDefault(require("./routers/apiRouter"));
 var _middlewares = require("./middlewares");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-console.log(process.env.COOKIE_SECRET, process.env.DB_URL);
 var app = (0, _express["default"])();
 var logger = (0, _morgan["default"])("dev");
 app.set("view engine", "pug");
